@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int esBisiesto(long anio)
+{
+    // Divisible entre 4, y (NO divisible entre 100 o divisible entre 400)
+    return anio % 4 == 0 && (anio % 100 != 0 || anio % 400 == 0);
+}
+
+int main()
+{
+    long anio;
+    // Pequeño uso:
+    printf("Ingresa un anio: ");
+    scanf("%ld", &anio);
+    int resultado = esBisiesto(anio);
+    if (resultado)
+    {
+        printf("Es bisiesto\n");
+    }
+    else
+    {
+        printf("NO es bisiesto\n");
+    }
+    printf("Ahora imprimiendo bisiestos de 1900 a 2200\n");
+    // Y ahora imprimimos los bisiestos desde el 1900 hasta el 2200
+    for (anio = 1900; anio <= 2200; anio++)
+    {
+        if (esBisiesto(anio))
+        {
+            printf("%ld, ", anio);
+        }
+    }
+    return 0;
+}
